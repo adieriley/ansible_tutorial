@@ -5,16 +5,10 @@
   tasks:
 
 
-  - name: update repository index
-    dnf:
+  - name: install apache and php packages
+    package:
+      name:  
+        - "{{ apache_package }}" 
+        - "{{ php_package }}"
+      state: latest
       update_cache: yes
-
-  - name: install httpd package
-    dnf:
-      name:  httpd
-      state: latest
-
-  - name: add php support for httpd
-    dnf:
-      name: php
-      state: latest
